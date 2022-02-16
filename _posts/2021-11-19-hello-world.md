@@ -8,7 +8,9 @@ tags:
   - general
 ---
 
-Here I am at last. The proverbial white page lies ahead. But I'm currently usign night-mode, so I guess it's more accurate to say *"black page"*. 
+Here I am at last. 
+
+The proverbial white page lies ahead. But I'm currently usign night-mode, so I guess it's more accurate to say *"black page"*. 
 
 I kinda don't know what to say now beyond I'm terribly exited and scared at the same time. Having potentially millions of people reading what I type alone in my room can be a terrifying thought. However, thank you for being here. 
 
