@@ -6,7 +6,9 @@ toc: true
 
 Hoja de vida, Curriculum Vitae [CV] o *Resume*. Los expertos dirán que hay diferencias estrictas entre estos términos, pero aquí está la información más relevante sobre mi perfil académico y profesional.
 
-Si estás buscando la versión PDF en español, aquí la puedes [descargar ⏬](/assets/files/2020_NoraHernandez_Espanol.pdf){:target="_blank"}.
+Descargar documento en Español [aquí ⏬](/assets/files/2020_NoraHernandez_Espanol.pdf){:target="_blank"}
+
+_Download English file [here ⏬](/assets/files/2020_NoraHernandez_English.pdf){:target="_blank"}_
 
 # Educación
 
@@ -62,62 +64,6 @@ También soy fluida en R, Python, Matlab, Weka, Git, y LaTex 💚. Además de lo
 * [Escritura Creativa: El arte de la trama](https://coursera.org/share/b8595b2cafd47c59a2b82fc0649ff58d){:target="_blank"}
 * [Análisis de datos de COVID19 en Python](https://coursera.org/share/ee5a9fa7e4bd9c719ac3842177089556){:target="_blank"}
 * [El lenguage de Hollywood: Narración, sonido y color](https://www.coursera.org/api/legacyCertificates.v1/spark/statementOfAccomplishment/973630~5595501/pdf){:target="_blank"}
-<br>
-<br>
-<br>
 
-# In English 
 
-<span style="font-size:12pt; font-style:italic">
-  If you're looking for the PDF English version, you can download it [here ⏬](/assets/files/2020_NoraHernandez_English.pdf).
-
-#### Education
-	<li style="font-size:12pt; font-style:italic"> 2021-present: Doctor of Philosophy - Faculty of Education, The University of Hong Kong. </li>
-		<li style="font-size:12pt; font-style:italic">Under supervision of <a href="https://web.edu.hku.hk/faculty-academics/xiaoxhu" target="_blank">Dr. Xiao Hu</a></li>
-		<li style="font-size:12pt; font-style:italic"> Research project on artificial intelligence education and data literacy, supported through STEAM education with an emphasis on music, for highschool students </li>
-	<li> 2018-2020: Master of Science - Computer Science, Tecnologico de Monterrey, Campus Estado de Mexico. </li>
-		<ul> 
-			<li>Under supervision of <a href="https://research.tec.mx/vivo-tec/display/PID_20804" target="_blank">Dr. Jorge Adolfo Ramirez Uresti</a> </li>
-			<li>Thesis on context-based recommender systems. I developed a model that combines expert knowledge and data from real users using Bayesian networks to offer personalized recommendations. </li>
-		</ul>
-		<li> 2018-2020: Master of Education - Orientation in Innovation and Educational Technology, Universidad del Valle de Mexico. </li>
-		<ul> <li>Project on design of wirtual learning environments. </li> </ul>
-		<li> 2011-2016: Bachelor's of Engineering - Mechatronics Engineering, Tecnologico de Monterrey, Campus Puebla. </li>
-		<ul> <li>Capstone project on capacitive sensors as security measure for automated industrial environments .</li> </ul>
-  
-#### Publications
- 
-<li style="font-size:12pt; font-style:italic">
-Estrada-Real, A. y Hernández-López, N., (2019). Razonamiento estadístico. In: Conocimiento y Razonamiento Computacional, 1st ed. [online] Mexico: Francisco Cantú and Rocío Aldeco (Ed), pp.63-102. Available at http://amexcomp.mx/files/Libro-CyR.pdf</li>
-
-<span style="font-size:12pt; font-style:italic">
-  I'm sure this list will become longer.
-  
-  
-#### Languages
-  
-<span style="font-size:12pt; font-style:italic">
-	Spanish is my native language. I hold a certificate for both advanced English (C1) and basic German (A2). I've tried to learn new languages on my own, therefore I understand a little French and Esperanto. Soon I will have more to say about Cantonese, I don't promise anything though 😆.
-
-<span style="font-size:12pt; font-style:italic">
-	I am also fluent in R, Python, Matlab, Weka, Git, and LaTex 💚. Plus the basics in Adobe Premiere Pro and InDesign, and some CAD+CAM in Autodesk Inventor. Need I say MS Office, or is it too obvious? 
-  
-	
-#### Professional Experience
-	
-	<ul style="font-size:12pt; font-style:italic">
-		<li>August-December 2020: Maker Project Developer, Aerobot Planet</li>
-		<ul><li>I designed challenging projects to foster creativity and innovation in kids ages 9 to 17. I specialized in creating engaging hands-on experiences through which children learn basic concepts of electronics, mechanics and computer science.</li></ul>
-		<li>January-December 2016: Quality Specialist, Ternium Largos Puebla</li>
-		<ul>
-			<li>I was part of the ISO/TS:16949 certification of the plant and was responsible of the completition of all relevant documents, which required special attention to detail and a statistical mindset.</li>
-			<li>I worked closely with customers' standards satisfaction, and monitored performance complaints solutions and customer service satisfaction.</li>
-			<li>I implemented a semi-automated data analysis process to provide relevant insights on the chemical quality of an intermediate product (round steel bars). </li>
-		</ul>
-		<li>July-December 2015: Production Intern, Ternium Largos Puebla</li>
-		<ul>
-			<li>I worked in monitoring the main furnace in the wire and rod production line (mill) for reducing fuel consumption. I contributed to the implementation of control measures to standardize operating practices. </li>
-			<li> I was a mentor of three continuous-improvement projects led by operational teams. Together we won the national competition for continuous improvement in the safety category. </li>
-		</ul>
-	</ul>
 
