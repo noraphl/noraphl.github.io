@@ -6,9 +6,9 @@ toc: true
 
 Hoja de vida, Curriculum Vitae [CV] o *Resume*. Los expertos dirán que hay diferencias estrictas entre estos términos, pero aquí está la información más relevante sobre mi perfil académico y profesional.
 
-Descargar documento en Español [aquí ⏬](/assets/files/2020_NoraHernandez_Espanol.pdf){:target="_blank"}
+Descargar documento en Español [aquí ⏬](/assets/files/cv_esp.pdf){:target="_blank"}
 
-_Download English file [here ⏬](/assets/files/2020_NoraHernandez_English.pdf){:target="_blank"}_
+_Download English file [here ⏬](/assets/files/cv_eng.pdf){:target="_blank"}_
 
 # Educación
 
