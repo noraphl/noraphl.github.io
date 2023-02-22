@@ -6,8 +6,6 @@ toc: true
 
 # Sobre mí
 
-*Lo básico:* Mujer cisgénero. 28 años. De México. Estudiante de doctorado (Ph.D.) en la Universidad de Hong Kong. Ingeniera de profesión. El cine es mi pasión.
-
 Lo que más me gusta hacer es aprender y espero nunca dejar de hacerlo. Cuando decidí qué quería estudiar, creía que me convertiría en una ingeniera trabajando para alguna transnacional, viajando a todos lados, y haciendo de la automatización industrial una realidad (como si no lo fuera ya). Pero luego me di cuenta de que lo que de verdad me apasiona es hacer algo con mis propias manos y disfrutar cada segundo del proceso, ya sean robots, blogs, o pan; y más recientemente, investigación. 
 
 Es por eso que ahora estoy enfocada al campo de la educación. Actualmente estoy delimitando un proyecto para promover *AI* y *data literacy* (alfabetización sobre datos e inteligencia artificial) en estudiantes pre-universitarios. Mis intereses generales son construccionismo, educación STEAM y *maker*, aprendizaje creativo y "aprender haciendo" (*learning by doing*) en el amplio sentido que ello implica. También me ha interesado el aspecto social del aprendizaje, al estilo del constructivismo social de Vygotsky, y espero poder adentrarme en ello un poco más en el futuro.
