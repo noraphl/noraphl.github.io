@@ -1,0 +1,903 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nora Hernández</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css">
+    <style>
+        :root {
+            --primary: #e05942;
+            --secondary: #f9a03f;
+            --tertiary: #f2c48d;
+            --text-dark: #48392a;
+            --text-light: #fff;
+            --bg-light: #fff9f5;
+            --bg-dark: #2b231c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #fc6e51;
+                --secondary: #ffb86c;
+                --tertiary: #f2c48d;
+                --text-dark: #fff9f5;
+                --text-light: #f5f5f5;
+                --bg-light: #2b231c;
+                --bg-dark: #1a1410;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+            .tab-content.active {
+                display: block;
+            }
+
+        .nav-tab {
+            position: relative;
+            transition: all 0.3s;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+        }
+
+            .nav-tab.active {
+                color: var(--primary);
+                border-bottom: 2px solid var(--primary);
+            }
+
+            .nav-tab:hover {
+                color: var(--secondary);
+            }
+
+        .profile-img {
+            box-shadow: 10px 10px 0 var(--tertiary);
+            transition: all 0.3s ease;
+        }
+
+            .profile-img:hover {
+                transform: translate(-5px, -5px);
+                box-shadow: 15px 15px 0 var(--tertiary);
+            }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+            .btn-primary:hover {
+                background-color: var(--secondary);
+                transform: translateY(-2px);
+            }
+
+        .research-card {
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+            .research-card:hover {
+                transform: translateX(5px);
+                border-left: 8px solid var(--primary);
+            }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+
+            .timeline-item:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: var(--primary);
+            }
+
+            .timeline-item:after {
+                content: '';
+                position: absolute;
+                left: 5px;
+                top: 12px;
+                width: 2px;
+                height: calc(100% + 8px);
+                background-color: var(--tertiary);
+            }
+
+            .timeline-item:last-child:after {
+                display: none;
+            }
+
+        .publication-card {
+            border-bottom: 1px solid var(--tertiary);
+            transition: all 0.2s;
+        }
+
+            .publication-card:hover {
+                background-color: rgba(242, 196, 141, 0.1);
+            }
+
+        .dark .publication-card:hover {
+            background-color: rgba(242, 196, 141, 0.05);
+        }
+
+        .contact-link {
+            color: var(--primary);
+            transition: all 0.2s;
+        }
+
+            .contact-link:hover {
+                color: var(--secondary);
+                text-decoration: underline;
+            }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--bg-dark);
+                color: var(--text-light);
+            }
+        }
+    </style>
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZTA1OTQyIiBkPSJNNDY4LjIxOCA5Mi4yMDFMMDQwMS42IDE1OC44aDE4OS4yMDkgMTgwLjE3OFQzMDQuMDU5IDMyNi42aDE4OS4yMDkgMTguNjczdi02OC44MDBjMC0zLjk3MS0uMzQ3LTcuOTU3LTEuMDAzLTExLjg1N2w0My4yODEtMTUyLjAzOHYtMS43MDRoLTg1Ljk5OXptLTI0NS40ODUgOTguNzk5aDE3Ny4wODNjNS4zNzUgMCA5LjcxNyA0LjM0MyA5LjcxNyA5LjcxN3Y2Ni41NzNjMCA1LjM3NS00LjM0MyA5LjcxNy05LjcxNyA5LjcxN0gyMjIuNzMzYy01LjM3NSAwLTkuNzE3LTQuMzQzLTkuNzE3LTkuNzE3di02Ni41NzNjMC01LjM3NSA0LjM0My05LjcxNyA5LjcxNy05LjcxN3ptLTQwLjA2Ny02NS44NjZoMjU3LjIxN2M1LjM3NSAwIDkuNzE3IDQuMzQzIDkuNzE3IDkuNzE3djI2LjYyOWMwIDUuMzc1LTQuMzQzIDkuNzE3LTkuNzE3IDkuNzE3SDE4Mi42NjZjLTUuMzc1IDAtOS43MTctNC4zNDMtOS43MTctOS43MTd2LTI2LjYyOWMwLTUuMzc1IDQuMzQzLTkuNzE3IDkuNzE3LTkuNzE3ek00OS4xODUgMzI2LjZoMzIwLjMzYzUuMzc1IDAgOS43MTcgNC4zNDMgOS43MTcgOS43MTd2NjYuNTczYzAgNS4zNzUtNC4zNDMgOS43MTctOS43MTcgOS43MTdoLTMyMC4zM2MtNS4zNzUgMC05LjcxNy00LjM0My05LjcxNy05LjcxN3YtNjYuNTczYzAtNS4zNzUgNC4zNDMtOS43MTcgOS43MTctOS43MTd6Ii8+PC9zdmc+">
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <header class="sticky top-0 z-50 shadow-md" style="background-color: var(--bg-light);">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <h1 class="text-2xl font-bold" style="color: var(--primary);">Nora Hernández</h1>
+                    </div>
+                    <nav class="flex overflow-x-auto w-full md:w-auto py-2">
+                        <ul class="flex space-x-8" id="tabs">
+                            <li>
+                                <button class="nav-tab active py-2 px-1" data-tab="about">About</button>
+                            </li>
+                            <li>
+                                <button class="nav-tab py-2 px-1" data-tab="research">Research</button>
+                            </li>
+                            <li>
+                                <button class="nav-tab py-2 px-1" data-tab="publications">Publications</button>
+                            </li>
+                            <li>
+                                <button class="nav-tab py-2 px-1" data-tab="outreach">Outreach</button>
+                            </li>
+                            <li>
+                                <button class="nav-tab py-2 px-1" data-tab="contact">Contact</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- About Tab -->
+            <section id="about" class="tab-content active">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="md:col-span-1">
+                        <div class="relative">
+                            <div class="w-full h-64 md:h-80 bg-gradient-to-r from-amber-300 to-orange-400 rounded-lg overflow-hidden profile-img">
+                                <!--<svg class="w-full h-full text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="M65.8,46.1c-0.2-0.5-0.7-0.8-1.2-0.8h-7.3c-0.7-5.7-3.6-13.2-12.2-13.2c-8.7,0-11.5,7.5-12.2,13.2h-7.3 c-0.5,0-1,0.3-1.2,0.8c-0.2,0.5-0.1,1,0.3,1.4c0.5,0.5,12.2,11.5,20.5,11.5c8.3,0,19.9-11,20.5-11.5C65.9,47.1,66,46.5,65.8,46.1z M45,55c-6.9,0-16.5-8.3-18.6-10c0.2-0.1,0.5-0.2,0.9-0.2h5.9c0.2,0,0.5-0.1,0.6-0.3c0.2-0.2,0.2-0.4,0.2-0.7 c0-0.1,0-12.7,11-12.7c11,0,11,12.6,11,12.7c0,0.2,0.1,0.5,0.2,0.7c0.2,0.2,0.4,0.3,0.6,0.3h5.9c0.3,0,0.6,0.1,0.9,0.2 C61.5,46.7,51.9,55,45,55z" />
+        <circle fill="currentColor" cx="37.5" cy="48.3" r="1.8" />
+        <circle fill="currentColor" cx="52.5" cy="48.3" r="1.8" />
+    </svg>-->
+                                <img src="assets/profile.svg" alt="Profile Image" class="w-full h-full object-cover" style="min-height: 320px;">
+                            </div>
+                        </div>
+                        <div class="mt-6 flex flex-col">
+                            <a href="assets/cv_eng.pdf" id="download-cv" class="btn-primary text-center py-3 px-4 rounded-lg font-medium text-lg flex items-center justify-center" target="_blank">
+                                <i class="fas fa-file-download mr-2"></i> Download CV
+                            </a>
+                            <div class="mt-6 flex justify-center space-x-4">
+                                <a href="https://www.linkedin.com/in/noraphl/" class="text-2xl hover:scale-110 transition-transform" style="color: var(--secondary)" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.researchgate.net/profile/Nora-Hernandez-Lopez" class="text-2xl hover:scale-110 transition-transform" style="color: var(--secondary)" target="_blank">
+                                    <i class="fab fa-brands fa-researchgate"></i>
+                                </a>
+                                <a href="https://scholar.google.com/citations?user=MAH0JjoAAAAJ" class="text-2xl hover:scale-110 transition-transform" style="color: var(--secondary)" target="_blank">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                                <a href="https://github.com/noraphl" class="text-2xl hover:scale-110 transition-transform" style="color: var(--secondary)" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://letterboxd.com/alt64Paty/" class="text-2xl hover:scale-110 transition-transform" style="color: var(--secondary)" target="_blank">
+                                    <i class="fa-solid fa-film"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">About Me</h2>
+                        <p class="mb-4 text-lg">
+                            I am a Ph.D. candidate in Education at The University of Hong Kong, specialising in the intersection of artificial intelligence, learning analytics, and culturally relevant education within STEAM disciplines.
+                        </p>
+                        <p class="mb-6 text-lg">
+                            My research explores how AI can be leveraged to create more equitable and personalized learning experiences, with a particular focus on supporting underrepresented students in STEAM fields. I am passionate about developing learning technologies that respect and incorporate diverse cultural perspectives.
+                        </p>
+
+                        <h3 class="text-2xl font-semibold mb-3 mt-8" style="color: var(--secondary);">Education</h3>
+                        <div class="space-y-4">
+                            <div class="timeline-item">
+                                <h4 class="font-medium text-lg">Ph.D. in Education (in progress)</h4>
+                                <p>The University of Hong Kong, 2021-Present</p>
+                                <p class="text-sm opacity-75">Thesis: Culturally Relevant Artificial Intelligence Education for Secondary School Students through Music Experimentation</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-medium text-lg">M.A. in Educational Technology and Innovation</h4>
+                                <p>Universidad del Valle de México, 2018-2020</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-medium text-lg">M.Sc. in Computer Science</h4>
+                                <p>Tecnológico de Monterrey, 2018-2020</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-medium text-lg">B.Eng. in Mechatronics</h4>
+                                <p>Tecnológico de Monterrey, 2011-2016</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-3 mt-8" style="color: var(--secondary);">Skills</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-medium mb-2">Research Methods</h4>
+                                <ul class="list-disc list-inside space-y-1 opacity-90">
+                                    <li>Mixed Methods Research</li>
+                                    <li>Learning Analytics</li>
+                                    <li>Bayesian Analysis</li>
+                                    <li>Qualitative Coding</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Technical</h4>
+                                <ul class="list-disc list-inside space-y-1 opacity-90">
+                                    <li>R, JavaScript, Python, LaTeX</li>
+                                    <li>Machine Learning, Weka</li>
+                                    <li>Educational Data Mining</li>
+                                    <li>Sequential Pattern Mining</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Tab -->
+            <section id="research" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6" style="color: var(--primary);">Research</h2>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Research Interests</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-lg shadow-md research-card" style="background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">AI in Education</h4>
+                            <p>Delivering equitable access for learning about artificial intelligencw while exploring how artificial intelligence can enhance teaching and learning experiences.</p>
+                        </div>
+                        <div class="p-5 rounded-lg shadow-md research-card" style="background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Learning Analytics</h4>
+                            <p>Developing data-driven approaches to understand students' learning processes and enhance learning outcomes, acknowledging that .</p>
+                        </div>
+                        <div class="p-5 rounded-lg shadow-md research-card" style="background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Culturally Relevant Education</h4>
+                            <p>Investigating how educational technologies can be designed to incorporate and honor diverse cultural perspectives and knowledge systems relevant to students' cutural identities.</p>
+                        </div>
+                        <div class="p-5 rounded-lg shadow-md research-card" style="background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">STEAM Education</h4>
+                            <p>Examining approaches that integrate arts into AI education to foster creativity, innovation, and engagement to promote meaningful learning.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Current Projects</h3>
+                    <div class="space-y-6">
+                        <div class="p-6 border rounded-lg transition-all hover:shadow-md" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Culturally Relevant AI Education for Secondary School Students</h4>
+                            <p class="mb-3">This project investigates the effect of Cultrally Relevant Education for improving students' learning outcomes when learning about AI.</p>
+                            <div class="flex items-center text-sm mt-2" style="color: var(--secondary);">
+                                <span class="font-medium">Status: </span>
+                                <span class="ml-2">In progress (2023-2025)</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 border rounded-lg transition-all hover:shadow-md" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Equitable ICT Education for Secondary School Students</h4>
+                            <p class="mb-3">In partnership with SEED Foundation and Impact Analytics, this longitudinal study examines the long-term effects of ICT education for preparing the youth with knowledge and skills for future opportunities in the digital era.</p>
+                            <div class="flex items-center text-sm mt-2" style="color: var(--secondary);">
+                                <span class="font-medium">Status: </span>
+                                <span class="ml-2">In progress (2022-2026)</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications Tab -->
+            <section id="publications" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6" style="color: var(--primary);">Publications</h2>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Journal Articles</h3>
+                    <div class="space-y-6">
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Learning Patterns in Culturally Relevant AI Education</h4>
+                            <p class="mb-2"><em>In preparation</em>, 2025</p>
+                            <p class="text-sm mb-3"><b>Hernández López, N.P.</b>, Hu, X. </p>
+                            <!--<p class="opacity-90">This paper presents a framework for designing AI educational technologies that are responsive to diverse cultural backgrounds, learning styles, and knowledge systems.</p>-->
+                        </div>
+
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Computing Education Meets the Arts: Insights from a Systematic Review</h4>
+                            <p class="mb-2"><em>Review of Educational Research</em>, Under Review</p>
+                            <p class="text-sm mb-3"><b>Hernández López, N.P.</b>, Hu, X. </p>
+                            <!--<p class="opacity-90">This study uses learning analytics to examine patterns of student participation in online STEM courses, with a focus on identifying and addressing equity gaps.</p>-->
+                        </div>
+
+                        <!--<div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Arts Integration in Computer Science Education: A Mixed Methods Study</h4>
+                            <p class="mb-2"><em>ACM Transactions on Computing Education</em>, 2021</p>
+                            <p class="text-sm mb-3">Johnson, M., Chen, H., & Davis, K.</p>
+                            <p class="opacity-90">This mixed methods study explores the impact of integrating visual arts and storytelling into introductory programming courses on student engagement and learning outcomes.</p>
+                        </div>-->
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Conference Proceedings</h3>
+                    <div class="space-y-6">
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Culturally Relevant Artificial Intelligence Education with Music for Secondary School Students</h4>
+                            <p class="mb-2"><em>Artificial Intelligence in Education (AIED)</em>, 2024</p>
+                            <p class="text-sm mb-3"><b>Hernández López, N.P.</b>, Hu, X.</p>
+                            <p class="opacity-90">
+                                DOI:
+                                <a href="http://dx.doi.org/10.1007/978-3-031-64312-5_46" target="_blank">10.1007/978-3-031-64312-5_46</a>
+                            </p>
+                        </div>
+
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Preliminary Evaluation of Learning Analytics Dashboard for College Teachers' Online Professional Learning</h4>
+                            <p class="mb-2"><em>IEEE International Conference on Advanced Learning Technologies (ICALT)</em>, 2024</p>
+                            <p class="text-sm mb-3">Wang, C., Ng, J.T.D., <b>Hernández López, N.P.</b>, Hu, X.</p>
+                            <p class="opacity-90">
+                                DOI:
+                                <a href="http://dx.doi.org/10.1109/ICALT61570.2024.00030" target="_blank">10.1109/ICALT61570.2024.00030</a>
+                            </p>
+                        </div>
+
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Needs Analysis of Learning Analytics Dashboard for College Teacher Online Professional Learning in an International Training Initiative for the Global South</h4>
+                            <p class="mb-2"><em>International Conference of Learning Analytics and Knowledge (LAK)</em>, 2024</p>
+                            <p class="text-sm mb-3">Wang, C., Hu, X., <b>Hernández López, N.P.</b>, Ng., J.T.D.</p>
+                            <!--<p class="opacity-90">This paper examines how cultural patterns influence student engagement in STEAM education and discusses implications for educational technology design.</p>-->
+                            <p class="opacity-90">
+                                DOI:
+                                <a href="http://dx.doi.org/10.1145/3636555.3636932" target="_blank">10.1145/3636555.3636932</a>
+                            </p>
+                        </div>
+
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">What Can Students Learn From Their Own Data? Data Literacy With Student-Facing Learning Analytics</h4>
+                            <p class="mb-2"><em>International Society of Learning Sciences (ISLS) Annual Meeting</em>, 2023</p>
+                            <p class="text-sm mb-3"><b>Hernández López, N.P.</b>, Hu, X.</p>
+                            <!--<p class="opacity-90">This paper examines how cultural patterns influence student engagement in STEAM education and discusses implications for educational technology design.</p>-->
+                            <p class="opacity-90">
+                                DOI:
+                                <a href="http://dx.doi.org/10.22318/icls2023.579283" target="_blank">10.22318/icls2023.579283</a>
+                            </p>
+                        </div>
+
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Student-facing Learning Analytics for Data Literacy: Findings from an Integrative Review</h4>
+                            <p class="mb-2"><em>International Conference of Learning Analytics and Knowledge (LAK)</em>, 2023</p>
+                            <p class="text-sm mb-3"><b>Hernández López, N.P.</b>, Hu, X.</p>
+                            <!--<p class="opacity-90">This paper examines how cultural patterns influence student engagement in STEAM education and discusses implications for educational technology design.</p>-->
+                            <p class="opacity-90">
+                                DOI:
+                                <a href="http://dx.doi.org/10.13140/RG.2.2.27533.04327" target="_blank">10.13140/RG.2.2.27533.04327</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Book Chapters</h3>
+                    <div class="space-y-6">
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Understanding Learning in Culturally Relevant Artificial Intelligence Education</h4>
+                            <p class="mb-2"><em>In Doctoral Consortium of the Learning Analytics Summer Institute Europe 2024 (LASI Europe 2024 DC)</em>, 2024</p>
+                            <p class="text-sm mb-3"><b>Hernández López, N.P.</b></p>
+                            <!--<p class="opacity-90">This chapter outlines principles and practices for implementing learning analytics approaches that center equity and justice in educational settings.</p>-->
+                            <p class="opacity-90">
+                                Chapter:
+                                <a href="https://ceur-ws.org/Vol-3738/paper11.pdf" target="_blank">CEUR Workshop Proceedings</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="p-4 publication-card">
+                            <h4 class="text-lg font-medium mb-1">Razonamiento Estadístico (Statistical Reasoning)</h4>
+                            <p class="mb-2"><em>In Conocimiento y Razonamiento Computacional (Computational Knowledge and Reasoning)</em>, 2019</p>
+                            <p class="text-sm mb-3">Estrada Real, A., <b>Hernández López, N.P.</b></p>
+                            <!--<p class="opacity-90">This chapter outlines principles and practices for implementing learning analytics approaches that center equity and justice in educational settings.</p>-->
+                            <p class="opacity-90">
+                                Chapter:
+                                <a href="https://amexcomp.mx/media/publicaciones/conocimiento-y-razon-comp.pdf" target="_blank">Academia Mexicana de Computación</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Outreach Tab -->
+            <section id="outreach" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6" style="color: var(--primary);">Outreach</h2>
+
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Public Talks</h3>
+                    <div class="space-y-6">
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">SCAPE Seminar: AI in Education</h4>
+                            <p class="text-sm mb-3">The University of Hong Kong (March 2024)</p>
+                            <p>Shared insights and recommendations for the use of culturally relevant educational tools to develop creativity and empower students with AI for members. The audience included faculty members and students from the Faculty of Education of The University of Hong Kong.</p>
+                        </div>
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Panel de Discusión: El Papel de la Mujer en la Ciencia (Discussion Panel: The Role of Women in Science)</h4>
+                            <p class="text-sm mb-3">Consulate General of Mexico, Hong Kong (March 2023)</p>
+                            <p>Participated in a discussion panel with two other Mexican women doing research in diverse fields in Hong Kong to discuss the challenges and opportunities of doing research abroad. The audience included a mix of research profesionals and general public.</p>
+                        </div>
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">TALE 2022 Interdisciplinary Postgraduate Student Forum</h4>
+                            <p class="text-sm mb-3">IEEE International Conference on Teaching, Assessment and Learning for Engineering (TALE) (November 2022)</p>
+                            <p>I shared my doctoral thesis with other research students in a round-table format.</p>
+                            <ul class="list-disc list-inside space-y-1 opacity-90">
+                                <li><i>Reciepient of 2nd Runner Up Award</i></li>
+                            </ul>
+                        </div>
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Forum for Social Experiments for AI in Education</h4>
+                            <p class="text-sm mb-3">Graduate School of Education, Pekin University, China (October 2022)</p>
+                            <p>I shared insights with other research students for the integration of the arts to leverage Computer Science and AI Education.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Teaching</h3>
+                    <div class="space-y-6">
+                        
+                            <div class="p-6 border rounded-lg transition-all hover:shadow-md" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                                <h4 class="text-xl font-semibold mb-2">MLIM7351: Information system analysis and development</h4>
+                                <p class="text-sm mb-3">Teaching Assistant, The University of Hong Kong (Spring 2024, Fall 2024)</p>
+                                <p class="mb-4">This graduate-level course introduces students to the principles and applications of information management systems in educational settings.</p>
+                                <ul class="list-disc list-inside space-y-1 opacity-90">
+                                    <li>Graded and provided feedback on student projects</li>
+                                </ul>
+                            </div>
+                       
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Professional Learning</h3>
+                    <div class="space-y-6">
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Doctoral Consortium</h4>
+                            <p class="text-sm mb-3">25th International Conference on Artificial Intelligence in Education (AIED 2024)</p>
+                            <!--<p>Received mentoring from 12 scholars in the AIED community for the development of my doctoral research.</p>-->
+                        </div>
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Doctoral Consortium</h4>
+                            <p class="text-sm mb-3">Learning Analytics Summer Institute Europe 2024 (LASI Europe 2024)</p>
+                        </div>
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Learning Analytics Summer Institute 2023 (LASI 2023)</h4>
+                            <p class="text-sm mb-3">Society of Learning Analytics Research (SoLAR)</p>
+                            <ul class="list-disc list-inside space-y-1 opacity-90">
+                                <li>Reciepient of Erik Duval Travel Scholarship</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Learning Analytics Summer Institute 2022 (LASI 2022)</h4>
+                            <p class="text-sm mb-3">Society of Learning Analytics Research (SoLAR)</p>
+                            <ul class="list-disc list-inside space-y-1 opacity-90">
+                                <li>Reciepient of Erik Duval Travel Scholarship</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Volunteering</h3>
+                    <div class="space-y-6">
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Joint Conference on Digital Libraries (JCDL24)</h4>
+                            <p class="text-sm mb-3">Hong Kong (December 2024)</p>
+                            <p>The Joint Conference on Digital Libraries (JCDL) is a major international forum focusing on digital libraries and associated technical, practical, and social issues.</p>
+                            <ul class="list-disc list-inside space-y-1 opacity-90">
+                                <li>Assisted with registration and logistics.</li>
+                                <li>Coordinated and supported in-person and online sessions.</li>
+                                <li>Facilitated in-person poster session.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">Artificial Intelligence in Education (AIED24)</h4>
+                            <p class="text-sm mb-3">Brazil (July 2024)</p>
+                            <p>The International Conference on Artificial Intelligence in Education (AIED) aims to advance the development and adoption of AI-assisted learning systems, focusing on how AI can democratize and enhance education across all sectors.</p>
+                            <ul class="list-disc list-inside space-y-1 opacity-90">
+                                <li>Assisted with registration.</li>
+                                <li>Supported in-person sessions.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-6 border rounded-lg" style="border-color: var(--tertiary); background-color: var(--bg-light);">
+                            <h4 class="text-xl font-semibold mb-2">International Society for Music Information Retrieval Conference (ISMIR22)</h4>
+                            <p class="text-sm mb-3">India (Online, December 2022)</p>
+                            <p>The International Society for Music Information Retrieval (ISMIR) represents the largest body of scholars, researchers and practitioners in the field of music information retrieval (MIR), showcasing the world's leading research in processing, searching, organising and accessing music-related data.</p>
+                            <ul class="list-disc list-inside space-y-1 opacity-90">
+                                <li>Supported online sessions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+</section>
+
+            <!-- Contact Tab -->
+            <section id="contact" class="tab-content">
+                <h2 class="text-3xl font-bold mb-6" style="color: var(--primary);">Contact</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Get in Touch</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-xl mr-4" style="color: var(--primary);">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <a href="mailto:noraphl@connect.hku.hk" class="contact-link">noraphl@connect.hku.hk</a> <br />
+                                    <a href="mailto:noraphl.me" class="contact-link">nora@noraphl.me</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="text-xl mr-4" style="color: var(--primary);">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Office</h4>
+                                    <p>
+                                        Room 401, Runme Shaw Building<br>
+                                        The University of Hong Kong<br>
+                                        Pok Fu Lam, Hong Kong<br>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!--<div class="flex items-start">
+                                <div class="text-xl mr-4" style="color: var(--primary);">
+                                    <i class="fas fa-clock"></i>
+                                </div>-->
+                                <!--<div>
+                                    <h4 class="font-medium">Office Hours</h4>
+                                    <p>
+                                        Tuesdays: 2:00 PM - 4:00 PM<br>
+                                        Thursdays: 10:00 AM - 12:00 PM<br>
+                                        Or by appointment
+                                    </p>
+                                </div>-->
+                            <!--</div>-->
+                        </div>
+
+                        <div class="mt-8">
+                            <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Connect Online</h3>
+                            <div class="space-y-4">
+
+
+                                <div class="flex items-start">
+                                    <div class="text-xl mr-4" style="color: var(--primary);">
+                                        <i class="fab fa-linkedin"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">LinkedIn</h4>
+                                        <a href="https://www.linkedin.com/in/noraphl/" class="contact-link" target="_blank">linkedin.com/in/noraphl</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="text-xl mr-4" style="color: var(--primary);">
+                                        <i class="fa-brands fa-researchgate"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">ResearchGate</h4>
+                                        <a href="https://www.researchgate.net/profile/Nora-Hernandez-Lopez" class="contact-link" target="_blank">researchgate.net/profile/Nora-Hernandez-Lopez</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="text-xl mr-4" style="color: var(--primary);">
+                                        <i class="fab fa-google"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Google Scholar</h4>
+                                        <a href="https://scholar.google.com/citations?user=MAH0JjoAAAAJ" class="contact-link" target="_blank">scholar.google.com/citations?user=MAH0JjoAAAAJ</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="text-xl mr-4" style="color: var(--primary);">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">GitHub</h4>
+                                        <a href="https://github.com/noraphl" class="contact-link" target="_blank">github.com/noraphl</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="text-xl mr-4" style="color: var(--primary);">
+                                        <i class="fa-solid fa-film"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Letterboxd</h4>
+                                        <a href="https://letterboxd.com/alt64Paty/" class="contact-link" target="_blank">letterboxd.com/alt64Paty</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4" style="color: var(--secondary);">Send a Message</h3>
+                        <form action="https://formspree.io/f/xbjyqwgz" method="POST" class="space-y-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">
+                                    Name
+                                    <input type="text" id="name" name="name" class="w-full p-3 border rounded-lg bg-transparent text-base" style="border-color: var(--tertiary);" placeholder="Your name">
+                                </label>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">
+                                    Email
+                                    <input type="email" name="email" id="email" class="w-full p-3 border rounded-lg bg-transparent text-base" style="border-color: var(--tertiary);" placeholder="Your email">
+                                </label>
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block mb-2 font-medium">
+                                    Subject
+                                    <input type="text" name="subject" id="subject" class="w-full p-3 border rounded-lg bg-transparent text-base" style="border-color: var(--tertiary);" placeholder="Message subject">
+                                </label>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block mb-2 font-medium">
+                                    Message
+                                    <textarea id="message" name="message" rows="5" class="w-full p-3 border rounded-lg bg-transparent text-base" style="border-color: var(--tertiary);" placeholder="Your message"></textarea>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-primary py-3 px-6 rounded-lg font-medium text-base w-full">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer style="background-color: var(--bg-dark); color: var(--text-light);" class="py-8">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <h2 class="text-xl font-bold" style="color: var(--secondary);">Nora Hernández</h2>
+                        <p class="text-sm opacity-75">Ph.D. Candidate in Education</p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://www.linkedin.com/in/noraphl/" style="color: var(--tertiary);" class="hover:text-white transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Nora-Hernandez-Lopez" style="color: var(--tertiary);" class="hover:text-white transition-colors">
+                            <i class="fa-brands fa-researchgate"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=MAH0JjoAAAAJ" style="color: var(--tertiary);" class="hover:text-white transition-colors">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://github.com/noraphl" style="color: var(--tertiary);" class="hover:text-white transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://letterboxd.com/alt64Paty/" style="color: var(--tertiary);" class="hover:text-white transition-colors">
+                            <i class="fa-solid fa-film"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-6 text-center text-sm opacity-75">
+                    <p>&copy; 2025 Nora Hernández. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabs = document.querySelectorAll('.nav-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+
+                    // Remove active class from all tabs and content
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to current tab and content
+                    tab.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // CV Download button functionality - show alert since we can't download files
+            //document.getElementById('download-cv').addEventListener('click', function(e) {
+            //    e.preventDefault();
+            //    const alertDiv = document.createElement('div');
+            //    alertDiv.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 p-4 rounded-lg shadow-lg z-50 text-white text-center max-w-md';
+            //    alertDiv.style.backgroundColor = 'var(--primary)';
+            //    alertDiv.innerHTML = `
+            //        <div class="flex items-center justify-between">
+            //            <div class="flex items-center">
+            //                <i class="fas fa-info-circle mr-2"></i>
+            //                <p>CV would download here in a real implementation. Right-click and select "Save As" to download files.</p>
+            //            </div>
+            //            <button class="ml-4 text-white focus:outline-none" id="close-alert">
+            //                <i class="fas fa-times"></i>
+            //            </button>
+            //        </div>
+            //    `;
+            //    document.body.appendChild(alertDiv);
+
+            //    // Auto-remove after 5 seconds or on click
+            //    const closeBtn = document.getElementById('close-alert');
+            //    closeBtn.addEventListener('click', () => {
+            //        document.body.removeChild(alertDiv);
+            //    });
+
+            //    setTimeout(() => {
+            //        if (document.body.contains(alertDiv)) {
+            //            document.body.removeChild(alertDiv);
+            //        }
+            //    }, 5000);
+            //});
+
+            //// Handle form submission
+            //const contactForm = document.querySelector('form');
+            //contactForm.addEventListener('submit', function(e) {
+            //    e.preventDefault();
+            //    // In a real implementation, this would send the form data
+            //});
+
+            //// Submit form on button click
+            //const sendButton = contactForm.querySelector('button');
+            //sendButton.addEventListener('click', function() {
+            //    const name = document.getElementById('name').value;
+            //    const email = document.getElementById('email').value;
+            //    const subject = document.getElementById('subject').value;
+            //    const message = document.getElementById('message').value;
+
+            //    if (name && email && subject && message) {
+            //        // Show success message
+            //        const alertDiv = document.createElement('div');
+            //        alertDiv.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 p-4 rounded-lg shadow-lg z-50 text-white text-center max-w-md';
+            //        alertDiv.style.backgroundColor = 'var(--secondary)';
+            //        alertDiv.innerHTML = `
+            //            <div class="flex items-center justify-between">
+            //                <div class="flex items-center">
+            //                    <i class="fas fa-check-circle mr-2"></i>
+            //                    <p>Message sent successfully!</p>
+            //                </div>
+            //                <button class="ml-4 text-white focus:outline-none" id="close-success">
+            //                    <i class="fas fa-times"></i>
+            //                </button>
+            //            </div>
+            //        `;
+            //        document.body.appendChild(alertDiv);
+
+            //        // Reset form
+            //        contactForm.reset();
+
+            //        // Auto-remove after 5 seconds or on click
+            //        const closeBtn = document.getElementById('close-success');
+            //        closeBtn.addEventListener('click', () => {
+            //            document.body.removeChild(alertDiv);
+            //        });
+
+            //        setTimeout(() => {
+            //            if (document.body.contains(alertDiv)) {
+            //                document.body.removeChild(alertDiv);
+            //            }
+            //        }, 5000);
+            //    } else {
+            //        // Show error message
+            //        const alertDiv = document.createElement('div');
+            //        alertDiv.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 p-4 rounded-lg shadow-lg z-50 text-white text-center max-w-md';
+            //        alertDiv.style.backgroundColor = '#e74c3c';
+            //        alertDiv.innerHTML = `
+            //            <div class="flex items-center justify-between">
+            //                <div class="flex items-center">
+            //                    <i class="fas fa-exclamation-circle mr-2"></i>
+            //                    <p>Please fill out all fields.</p>
+            //                </div>
+            //                <button class="ml-4 text-white focus:outline-none" id="close-error">
+            //                    <i class="fas fa-times"></i>
+            //                </button>
+            //            </div>
+            //        `;
+            //        document.body.appendChild(alertDiv);
+
+            //        // Auto-remove after 5 seconds or on click
+            //        const closeBtn = document.getElementById('close-error');
+            //        closeBtn.addEventListener('click', () => {
+            //            document.body.removeChild(alertDiv);
+            //        });
+
+            //        setTimeout(() => {
+            //            if (document.body.contains(alertDiv)) {
+            //                document.body.removeChild(alertDiv);
+            //            }
+            //        }, 5000);
+            //    }
+            //});
+
+            // Check if dark mode is preferred
+            function checkDarkMode() {
+                const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.body.classList.toggle('dark', isDarkMode);
+            }
+
+            // Run initial check for dark mode
+            checkDarkMode();
+
+            // Listen for changes in color scheme preference
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', checkDarkMode);
+            }
+        });</script>
+</body>
+</html>
